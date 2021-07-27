@@ -4,6 +4,7 @@
 
 #include <gtest/gtest.h>
 #include <vector>
+#include <unordered_map>
 
 int main(int argc, char** argv) {
 	testing::InitGoogleTest(&argc, argv);
@@ -13,14 +14,14 @@ int main(int argc, char** argv) {
 class solutionClass : public testing::Test {
 public:
 	std::vector<int> twoSum(std::vector<int>& nums, int target) {
-		auto vec = std::vector<int>();
+		std::unordered_map<int, int> umap;
 		for (int i = 0; i < static_cast<int>(nums.size()); ++i) {
-			for (const auto& key : vec) {
-				if (nums[static_cast<size_t>(key)] + nums[i] == target) {
-					return std::vector<int>({key, i});
-				}
+			int tmp = target - nums[i];
+			if (umap.count(tmp)) {
+				return std::vector<int>({umap[tmp], i});
+			} else {
+				umap[nums[i]] = i;
 			}
-			vec.push_back(i);
 		}
 
 		return std::vector<int>();
