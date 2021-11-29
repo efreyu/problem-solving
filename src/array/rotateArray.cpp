@@ -7,9 +7,13 @@
 class rotateArrayClass : public testing::Test {
 public:
     void rotateArray(std::vector<int>& nums, int k) {
-        std::vector<int> items(nums.end() - std::min<int>(k, nums.size()), nums.end());
-        nums.resize(nums.size() - k);
-        nums.insert(nums.begin(), items.begin(), items.end());
+        if (k >= nums.size()) {
+            std::reverse(nums.begin(), nums.end());
+        } else {
+            std::vector<int> items(nums.end() - k, nums.end());
+            nums.resize(nums.size() - k);
+            nums.insert(nums.begin(), items.begin(), items.end());
+        }
     }
 };
 
@@ -22,7 +26,9 @@ struct sTest {
 
 TEST_F(rotateArrayClass, rotateArray) {
     std::vector<sTest> cases = {
-        {{1,2}, 3, {2,1}},
+        {{1,2,3}, 4, {3,1,2 }},//
+        {{1,2}, 3, {2,1}},//
+        {{1,2}, 2, {1,2}},//
         {{1,2,3,4,5,6,7}, 3, {5,6,7,1,2,3,4}},
         {{1,2,3,4,5,6,7}, 1, {7,1,2,3,4,5,6}},
         {{1,2,3,4,5,6,7}, 2, {6,7,1,2,3,4,5}},
