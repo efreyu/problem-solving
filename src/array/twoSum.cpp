@@ -6,12 +6,7 @@
 #include <vector>
 #include <unordered_map>
 
-int main(int argc, char** argv) {
-	testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
-}
-
-class solutionClass : public testing::Test {
+class twoSumClass : public testing::Test {
 public:
 	std::vector<int> twoSum(std::vector<int>& nums, int target) {
 		std::unordered_map<int, int> umap;
@@ -29,7 +24,7 @@ public:
 	}
 };
 
-TEST_F(solutionClass, twoSum) {
+TEST_F(twoSumClass, twoSum) {
 
 	auto example1 = std::vector<int>({2, 7, 11, 15});
 	auto result1 = twoSum(example1, 9);
