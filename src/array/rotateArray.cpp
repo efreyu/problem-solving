@@ -8,9 +8,9 @@ class rotateArrayClass : public testing::Test {
 public:
     void rotateArray(std::vector<int>& nums, int k) {
         k = k % nums.size();
-//        std::vector<int> items(nums.end() - k, nums.end());
-        nums.insert(nums.begin(), nums.end() - k, nums.end());
-        nums.resize(nums.size() - k);
+        std::vector<int> items(nums.end() - k, nums.end());
+        nums.erase(nums.end() - k, nums.end());
+        nums.insert(nums.begin(), items.begin(), items.end());
     }
 };
 
