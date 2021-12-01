@@ -9,5 +9,6 @@ init_test(arrayTest main.cpp
         array/maxProfit.cpp
         array/containsDuplicate.cpp
         array/singleNumber.cpp
+        array/intersection.cpp
         )
 
