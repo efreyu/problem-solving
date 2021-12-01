@@ -8,5 +8,6 @@ init_test(arrayTest main.cpp
         array/rotateArray.cpp
         array/maxProfit.cpp
         array/containsDuplicate.cpp
+        array/singleNumber.cpp
         )
 
