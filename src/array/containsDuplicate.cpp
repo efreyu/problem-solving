@@ -8,13 +8,20 @@
 
 class containsDuplicateTestSuite : public testing::Test {
 public:
-    bool containsDuplicate(std::vector<int>& nums) {
-        std::unordered_map<int, bool> map;
+    // via hashtable
+    bool containsDuplicateHash(std::vector<int>& nums) {
+        std::unordered_map<int, bool> umap;
         for (auto& item : nums) {
-            if (map.count(item)) return true;
-            map[item] = true;
+            if (umap.count(item)) return true;
+            umap[item] = true;
         }
         return false;
+    }
+    //via sorting and unique
+    bool containsDuplicateUnique(std::vector<int>& nums) {
+        std::sort(std::begin(nums), std::end(nums));
+        auto it = std::unique(std::begin(nums), std::end(nums));
+        return std::distance(std::begin(nums), it) != nums.size();
     }
 };
 
@@ -27,7 +34,9 @@ TEST_F(containsDuplicateTestSuite, containsDuplicate) {
     };
 
     for (auto& item : cases) {
-        auto result = containsDuplicate(item.first);
+        auto result = containsDuplicateHash(item.first);
+        EXPECT_EQ(result, item.second);
+        result = containsDuplicateUnique(item.first);
         EXPECT_EQ(result, item.second);
     }
 }
