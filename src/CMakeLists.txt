@@ -6,5 +6,6 @@ init_test(arrayTest main.cpp
         array/twoSum.cpp
         array/removeDuplicates.cpp
         array/rotateArray.cpp
+        array/maxProfit.cpp
         )
 
