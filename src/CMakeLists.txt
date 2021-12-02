@@ -10,5 +10,6 @@ init_test(arrayTest main.cpp
         array/containsDuplicate.cpp
         array/singleNumber.cpp
         array/intersection.cpp
+        array/plusOne.cpp
         )
 
