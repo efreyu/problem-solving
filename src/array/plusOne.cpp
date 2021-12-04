@@ -30,11 +30,13 @@ public:
 
 TEST_F(plusOneTestSuite, plusOne) {
     typedef std::pair<std::vector<int>, std::vector<int>> testCase;
-    std::vector<testCase> cases = { { { 1, 2, 3 }, { 1, 2, 4 } },
-                                    { { 4, 3, 2, 1 }, { 4, 3, 2, 2 } },
-                                    { { 0 }, { 1 } },
-                                    { { 9 }, { 1, 0 } },
-                                    { { 9, 9 }, { 1, 0, 0 } } };
+    std::vector<testCase> cases = {
+        { { 1, 2, 3 }, { 1, 2, 4 } },
+        { { 4, 3, 2, 1 }, { 4, 3, 2, 2 } },
+        { { 0 }, { 1 } },
+        { { 9 }, { 1, 0 } },
+        { { 9, 9 }, { 1, 0, 0 } }
+    };
 
     for (auto& item : cases) {
         auto result = plusOne(item.first);

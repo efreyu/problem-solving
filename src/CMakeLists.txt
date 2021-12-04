@@ -11,5 +11,6 @@ init_test(arrayTest main.cpp
         array/singleNumber.cpp
         array/intersection.cpp
         array/plusOne.cpp
+        array/moveZeroes.cpp
         )
 
